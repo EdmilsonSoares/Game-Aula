@@ -1560,12 +1560,12 @@ SpriteRenderer:
   m_SortingLayerID: -108313365
   m_SortingLayer: 3
   m_SortingOrder: 2
-  m_Sprite: {fileID: -6367560908665664636, guid: 40de9a8703e2e5a47882b0b86451c741, type: 3}
+  m_Sprite: {fileID: -467307283419413426, guid: f75221c5ee29a52439261c4122738bc1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 1.28125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1580,7 +1580,7 @@ Transform:
   m_GameObject: {fileID: 221344111}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.42, y: -2.38, z: 0}
+  m_LocalPosition: {x: -5.848, y: -3.44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1647,8 +1647,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.007826328, y: -0.1372137}
-  m_Size: {x: 0.5147667, y: 0.7334695}
+  m_Offset: {x: 0.0044219494, y: -0.023951054}
+  m_Size: {x: 0.61688757, y: 1.0924377}
   m_Direction: 0
 --- !u!114 &221344117
 MonoBehaviour:
@@ -1662,13 +1662,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3f32b3d496cf9b43b83cbd5c887842f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidade: 8
+  velocidade: 6
   forcaPulo: 15
   layerSolo:
     serializedVersion: 2
     m_Bits: 64
   tamanhoCaixa: {x: 0.45, y: 0.1}
-  distanciaSolo: 0.5
+  distanciaSolo: 0.6
   coins: 0
 --- !u!95 &221344118
 Animator:
