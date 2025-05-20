@@ -21,43 +21,56 @@ public class Player : MonoBehaviour
         sprRen = GetComponent<SpriteRenderer>();
         playerAnimator = GetComponent<Animator>();
     }
+
     void Update()
     {
         InputJogador();
         PuloJogador();
     }
+
     private void FixedUpdate()
     {
         MoverJogador();
 
     }
+
     void InputJogador()
     {
         inputHorizontal = Input.GetAxis("Horizontal");
         if (inputHorizontal > 0)
         {
             sprRen.flipX = false; // Olhando para a direita
-            playerAnimator.SetBool("walking", true);
+            playerAnimator.SetBool("walking", NoSolo());
         }
         else if (inputHorizontal < 0)
         {
             sprRen.flipX = true; // Olhando para a esquerda
-            playerAnimator.SetBool("walking", true);
+            playerAnimator.SetBool("walking", NoSolo());
         }
         else
         {
             playerAnimator.SetBool("walking", false);
         }
     }
+
     void MoverJogador()
     {
         rig2D.linearVelocity = new Vector2(inputHorizontal * velocidade, rig2D.linearVelocity.y);
     }
+
     void PuloJogador()
     {
         if (Input.GetButtonDown("Jump") && NoSolo())
         {
             rig2D.AddForce(new Vector2(0f, forcaPulo), ForceMode2D.Impulse);
+        }
+        if (!NoSolo())
+        {
+            playerAnimator.SetBool("jumping", true);
+        }
+        else
+        {
+            playerAnimator.SetBool("jumping", false);
         }
     }
 
@@ -66,11 +79,12 @@ public class Player : MonoBehaviour
         bool noSolo = Physics2D.BoxCast(transform.position, tamanhoCaixa, 0, -transform.up, distanciaSolo, layerSolo);
         return noSolo;
     }
+
     // Método para desenha a caixa de colisão do BoxCast no editor
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(transform.position-transform.up * distanciaSolo, tamanhoCaixa);
+        Gizmos.DrawWireCube(transform.position - transform.up * distanciaSolo, tamanhoCaixa);
     }
 
 }
