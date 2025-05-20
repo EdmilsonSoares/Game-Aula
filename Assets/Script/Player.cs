@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        InputJogador();
+        GerenciadorDeAnimacao();
         PuloJogador();
     }
 
@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
 
     }
 
-    void InputJogador()
+    void GerenciadorDeAnimacao()
     {
         inputHorizontal = Input.GetAxis("Horizontal");
         if (inputHorizontal > 0)
@@ -51,6 +51,15 @@ public class Player : MonoBehaviour
         {
             playerAnimator.SetBool("walking", false);
         }
+
+        if (!NoSolo())
+        {
+            playerAnimator.SetBool("jumping", true);
+        }
+        else
+        {
+            playerAnimator.SetBool("jumping", false);
+        }
     }
 
     void MoverJogador()
@@ -63,14 +72,6 @@ public class Player : MonoBehaviour
         if (Input.GetButtonDown("Jump") && NoSolo())
         {
             rig2D.AddForce(new Vector2(0f, forcaPulo), ForceMode2D.Impulse);
-        }
-        if (!NoSolo())
-        {
-            playerAnimator.SetBool("jumping", true);
-        }
-        else
-        {
-            playerAnimator.SetBool("jumping", false);
         }
     }
 
