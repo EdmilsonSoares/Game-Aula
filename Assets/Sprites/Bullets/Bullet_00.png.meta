@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 4f54f7494ea932f468387bab5d1d0c83
+guid: 199207e248c509b4d8f3a2f0cd75af6e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5508202041847527963
-    second: Pointer2_0
+      213: -5206918106779452536
+    second: Bullet_00_0
+  - first:
+      213: 8372262428572909149
+    second: Bullet_00_1
+  - first:
+      213: -8607766070561175610
+    second: Bullet_00_2
+  - first:
+      213: -7362264717611051203
+    second: Bullet_00_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +122,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Pointer2_0
+      name: Bullet_00_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 0
-        width: 17
-        height: 27
+        x: 5
+        y: 5
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +137,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5e5c8983d6fee83b0800000000000000
-      internalID: -5508202041847527963
+      spriteID: 88b7cdeb19f4db7b0800000000000000
+      internalID: -5206918106779452536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bullet_00_1
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 5
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5eff651250403470800000000000000
+      internalID: 8372262428572909149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bullet_00_2
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 5
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c78a8e5d521b8880800000000000000
+      internalID: -8607766070561175610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bullet_00_3
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 5
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d37d66c0f3bf3d990800000000000000
+      internalID: -7362264717611051203
       vertices: []
       indices: 
       edges: []
@@ -148,7 +223,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Pointer2_0: -5508202041847527963
+      Bullet_00_0: -5206918106779452536
+      Bullet_00_1: 8372262428572909149
+      Bullet_00_2: -8607766070561175610
+      Bullet_00_3: -7362264717611051203
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -10,15 +11,33 @@ public class Player : MonoBehaviour
     [SerializeField] private Vector2 tamanhoCaixa;
     [SerializeField] private float distanciaSolo;
     private float inputHorizontal;
-    private Rigidbody2D rig2D;
+    private Rigidbody2D playerRb;
     private SpriteRenderer sprRen;
     private Animator playerAnimator;
     public int coins;
+    private bool lookingRight = true;
+    private bool jumpInDash = true;
+    private bool canDash = true;
+    private bool isDashing = false;
+    [Header("Configurações do Dash")] // Ajuda a organizar no Inspector
+    [SerializeField] private float dashSpeed = 20f;
+    [SerializeField] private float dashDuration = 0.2f; // Duração real do dash
+    [SerializeField] private float dashCooldown = 0.5f; // Tempo de recarga entre dashes
+
+    public static Player Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+    }
 
     void Start()
     {
-        rig2D = GetComponent<Rigidbody2D>();
-        sprRen = GetComponent<SpriteRenderer>();
+        playerRb = GetComponent<Rigidbody2D>();
+        sprRen = GetComponent<SpriteRenderer>(); // Pegue a referência mesmo que não use flipX
         playerAnimator = GetComponent<Animator>();
     }
 
@@ -26,33 +45,37 @@ public class Player : MonoBehaviour
     {
         GerenciadorDeAnimacao();
         PuloJogador();
+        DashInput();
     }
 
     private void FixedUpdate()
     {
         MoverJogador();
-
     }
 
     void GerenciadorDeAnimacao()
     {
         inputHorizontal = Input.GetAxis("Horizontal");
-        if (inputHorizontal > 0)
+        if (inputHorizontal > 0 && !isDashing)
         {
-            sprRen.flipX = false; // Olhando para a direita
+            // Muda a escala do objeto para a direita
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
             playerAnimator.SetBool("walking", NoSolo());
+            lookingRight = true;
         }
-        else if (inputHorizontal < 0)
+        else if (inputHorizontal < 0 && !isDashing)
         {
-            sprRen.flipX = true; // Olhando para a esquerda
+            // Muda a escala do objeto para a esquerda
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
             playerAnimator.SetBool("walking", NoSolo());
+            lookingRight = false;
         }
         else
         {
             playerAnimator.SetBool("walking", false);
         }
 
-        if (!NoSolo())
+        if (!NoSolo() && !isDashing)
         {
             playerAnimator.SetBool("jumping", true);
         }
@@ -60,18 +83,35 @@ public class Player : MonoBehaviour
         {
             playerAnimator.SetBool("jumping", false);
         }
+        if (Input.GetButtonDown("Fire1") && !playerAnimator.GetBool("walking"))
+        {
+            playerAnimator.SetTrigger("fire");
+        }
     }
 
     void MoverJogador()
     {
-        rig2D.linearVelocity = new Vector2(inputHorizontal * velocidade, rig2D.linearVelocity.y);
+        if (!isDashing)
+        {
+            playerRb.linearVelocity = new Vector2(inputHorizontal * velocidade, playerRb.linearVelocity.y);
+        }
     }
 
     void PuloJogador()
     {
-        if (Input.GetButtonDown("Jump") && NoSolo())
+        if (Input.GetButtonDown("Jump"))
         {
-            rig2D.AddForce(new Vector2(0f, forcaPulo), ForceMode2D.Impulse);
+            if (NoSolo())
+            {
+                playerRb.AddForce(new Vector2(0f, forcaPulo), ForceMode2D.Impulse);
+                if (isDashing)
+                    jumpInDash = false;
+            }
+            else if (isDashing && jumpInDash)
+            {
+                playerRb.AddForce(new Vector2(0f, forcaPulo), ForceMode2D.Impulse);
+                jumpInDash = false;
+            }
         }
     }
 
@@ -81,7 +121,46 @@ public class Player : MonoBehaviour
         return noSolo;
     }
 
-    // Método para desenha a caixa de colisão do BoxCast no editor
+    // --- Lógica do Dash ---
+
+    private void DashInput()
+    {
+        if (Input.GetButtonDown("Fire3") && canDash && !isDashing && NoSolo()) // Configurado para botão L
+        {
+            StartCoroutine(PerformDash()); // Inicia a corrotina do dash
+        }
+    }
+
+    private IEnumerator PerformDash()
+    {
+        canDash = false;
+        isDashing = true;
+
+        float dashDirection = lookingRight ? 1f : -1f;
+        playerRb.linearVelocity = new Vector2(dashDirection * dashSpeed, 0f);
+        playerAnimator.SetBool("dashing", true);
+
+        // Espera pelo tempo de duração do dash
+        yield return new WaitForSeconds(dashDuration);
+
+        // Fim do Dash
+        StopDash();
+        playerAnimator.SetBool("dashing", false);
+
+        // Inicia o cooldown do dash
+        yield return new WaitForSeconds(dashCooldown);
+        canDash = true; // Permite um novo dash após o cooldown
+    }
+
+    private void StopDash()
+    {
+        isDashing = false;
+        jumpInDash = true;
+        playerRb.linearVelocity = new Vector2(0f, playerRb.linearVelocity.y);
+    }
+
+    // --- Fim da Lógica do Dash ---
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;

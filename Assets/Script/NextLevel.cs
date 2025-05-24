@@ -1,7 +1,4 @@
 //script para mudar de cena quando jogador colidir com o final
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

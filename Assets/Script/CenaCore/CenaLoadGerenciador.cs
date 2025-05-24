@@ -1,5 +1,4 @@
-// Singleton para receber o nome da próxima cena a ser carregada e carregar a cena de loading
-// e depois a cena desejada. O script LoadingScenes irá carregar a cena desejada
+// Singleton para receber o nome da próxima cena a ser carregada e carregar a cena de loading antes
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

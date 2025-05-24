@@ -7,8 +7,7 @@ using UnityEngine.SceneManagement;
 public class Menu : MonoBehaviour
 {
     public void CarregarCenas(string cena){
-        //SceneManager.LoadScene(cena, LoadSceneMode.Single);
-        CenaLoadGerenciador.Instance.Carregar(cena);
+        CenaLoadGerenciador.Instance.Carregar(cena); // Cena adicionada na opção OnClick() do botão
     }
 
     public void Sair(){
