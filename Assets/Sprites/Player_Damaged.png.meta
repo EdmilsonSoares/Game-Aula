@@ -1,37 +1,37 @@
 fileFormatVersion: 2
-guid: d7d32a769d4a0a245bc160e80c8c351f
+guid: 0d9563b9434d5fd429742bbc1b5934c7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4320010084133899996
-    second: Idle-Run (44x30)_0
+      213: 7342799733751634483
+    second: Player_Damaged_0
   - first:
-      213: -31681914721083726
-    second: Idle-Run (44x30)_1
+      213: -3793222227676898430
+    second: Player_Damaged_1
   - first:
-      213: 6085019124062519307
-    second: Idle-Run (44x30)_2
+      213: 7763838318334346955
+    second: Player_Damaged_2
   - first:
-      213: 5044515257469741075
-    second: Idle-Run (44x30)_3
+      213: -2956967857612301067
+    second: Player_Damaged_3
   - first:
-      213: 7161937680985596148
-    second: Idle-Run (44x30)_4
+      213: 962566018470045115
+    second: Player_Damaged_4
   - first:
-      213: -1676692623272893389
-    second: Idle-Run (44x30)_5
+      213: -1683694959746572006
+    second: Player_Damaged_5
   - first:
-      213: 7659680398461486745
-    second: Idle-Run (44x30)_6
+      213: -2069368288773586052
+    second: Player_Damaged_6
   - first:
-      213: -3555855070186029808
-    second: Idle-Run (44x30)_7
+      213: 515114471352915771
+    second: Player_Damaged_7
   - first:
-      213: 6870164852964529440
-    second: Idle-Run (44x30)_8
+      213: -4751809042401971293
+    second: Player_Damaged_8
   - first:
-      213: -5462098846767402552
-    second: Idle-Run (44x30)_9
+      213: 4038669036975064773
+    second: Player_Damaged_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -140,221 +140,221 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Idle-Run (44x30)_0
+      name: Player_Damaged_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 0
-        width: 40
-        height: 27
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 7
+        y: 4
+        width: 32
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cde08ea7842c3fb30800000000000000
-      internalID: 4320010084133899996
+      spriteID: 33a591b347dd6e560800000000000000
+      internalID: 7342799733751634483
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle-Run (44x30)_1
+      name: Player_Damaged_1
       rect:
         serializedVersion: 2
-        x: 45
-        y: 0
-        width: 42
-        height: 26
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 55
+        y: 4
+        width: 32
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2bede3767717f8ff0800000000000000
-      internalID: -31681914721083726
+      spriteID: 28bd3353b74cb5bc0800000000000000
+      internalID: -3793222227676898430
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle-Run (44x30)_2
+      name: Player_Damaged_2
       rect:
         serializedVersion: 2
-        x: 88
-        y: 0
-        width: 44
-        height: 24
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 103
+        y: 4
+        width: 32
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b00843d47a4527450800000000000000
-      internalID: 6085019124062519307
+      spriteID: bc682e1e0d1bebb60800000000000000
+      internalID: 7763838318334346955
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle-Run (44x30)_3
+      name: Player_Damaged_3
       rect:
         serializedVersion: 2
-        x: 132
-        y: 0
-        width: 44
-        height: 24
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 151
+        y: 4
+        width: 32
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 318a58156e7b10640800000000000000
-      internalID: 5044515257469741075
+      spriteID: 5fc55c2766db6f6d0800000000000000
+      internalID: -2956967857612301067
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle-Run (44x30)_4
+      name: Player_Damaged_4
       rect:
         serializedVersion: 2
-        x: 177
-        y: 0
-        width: 42
-        height: 25
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 199
+        y: 4
+        width: 32
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4f0a1a21060546360800000000000000
-      internalID: 7161937680985596148
+      spriteID: bb5e4c3a1b8bb5d00800000000000000
+      internalID: 962566018470045115
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle-Run (44x30)_5
+      name: Player_Damaged_5
       rect:
         serializedVersion: 2
-        x: 222
-        y: 0
-        width: 40
-        height: 27
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 247
+        y: 4
+        width: 32
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3342d4051f03bb8e0800000000000000
-      internalID: -1676692623272893389
+      spriteID: a11a03eca5052a8e0800000000000000
+      internalID: -1683694959746572006
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle-Run (44x30)_6
+      name: Player_Damaged_6
       rect:
         serializedVersion: 2
-        x: 267
-        y: 0
-        width: 38
-        height: 29
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 295
+        y: 4
+        width: 32
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 996c15b5db6ac4a60800000000000000
-      internalID: 7659680398461486745
+      spriteID: c73413e51802843e0800000000000000
+      internalID: -2069368288773586052
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle-Run (44x30)_7
+      name: Player_Damaged_7
       rect:
         serializedVersion: 2
-        x: 312
-        y: 0
-        width: 36
-        height: 30
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 343
+        y: 4
+        width: 32
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 01d3ac447a017aec0800000000000000
-      internalID: -3555855070186029808
+      spriteID: b3757abe1ed062700800000000000000
+      internalID: 515114471352915771
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle-Run (44x30)_8
+      name: Player_Damaged_8
       rect:
         serializedVersion: 2
-        x: 356
-        y: 0
-        width: 36
-        height: 30
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 391
+        y: 4
+        width: 32
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0251359b88ab75f50800000000000000
-      internalID: 6870164852964529440
+      spriteID: 3a334232ade2e0eb0800000000000000
+      internalID: -4751809042401971293
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle-Run (44x30)_9
+      name: Player_Damaged_9
       rect:
         serializedVersion: 2
-        x: 399
-        y: 0
-        width: 38
-        height: 29
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 439
+        y: 4
+        width: 32
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8c1bb5ec90ab234b0800000000000000
-      internalID: -5462098846767402552
+      spriteID: 5c68442671c3c0830800000000000000
+      internalID: 4038669036975064773
       vertices: []
       indices: 
       edges: []
@@ -363,7 +363,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 93b3be2a171074b4da8a06b1efdf97cd
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -373,16 +373,16 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Idle-Run (44x30)_0: 4320010084133899996
-      Idle-Run (44x30)_1: -31681914721083726
-      Idle-Run (44x30)_2: 6085019124062519307
-      Idle-Run (44x30)_3: 5044515257469741075
-      Idle-Run (44x30)_4: 7161937680985596148
-      Idle-Run (44x30)_5: -1676692623272893389
-      Idle-Run (44x30)_6: 7659680398461486745
-      Idle-Run (44x30)_7: -3555855070186029808
-      Idle-Run (44x30)_8: 6870164852964529440
-      Idle-Run (44x30)_9: -5462098846767402552
+      Player_Damaged_0: 7342799733751634483
+      Player_Damaged_1: -3793222227676898430
+      Player_Damaged_2: 7763838318334346955
+      Player_Damaged_3: -2956967857612301067
+      Player_Damaged_4: 962566018470045115
+      Player_Damaged_5: -1683694959746572006
+      Player_Damaged_6: -2069368288773586052
+      Player_Damaged_7: 515114471352915771
+      Player_Damaged_8: -4751809042401971293
+      Player_Damaged_9: 4038669036975064773
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Lava-Flow
   m_EditorClassIdentifier: 
   m_AnimatedSprites:
-  - {fileID: -3516403289641682131, guid: d74c623783de06d4ebe85b4844a6122b, type: 3}
-  - {fileID: 219012265, guid: d74c623783de06d4ebe85b4844a6122b, type: 3}
-  - {fileID: -172777184, guid: d74c623783de06d4ebe85b4844a6122b, type: 3}
-  - {fileID: -1364970098, guid: d74c623783de06d4ebe85b4844a6122b, type: 3}
+  - {fileID: 2093371753167833838, guid: f3653d380adf2b34bb2826fbc37192aa, type: 3}
+  - {fileID: -1536439234, guid: f3653d380adf2b34bb2826fbc37192aa, type: 3}
+  - {fileID: 1742488694, guid: f3653d380adf2b34bb2826fbc37192aa, type: 3}
+  - {fileID: -1083411057, guid: f3653d380adf2b34bb2826fbc37192aa, type: 3}
   m_MinSpeed: 8
   m_MaxSpeed: 8
   m_AnimationStartTime: 0

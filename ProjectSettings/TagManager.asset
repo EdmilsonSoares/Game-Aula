@@ -11,11 +11,11 @@ TagManager:
   - 
   - Water
   - UI
-  - Foreground
-  - NextLevel
-  - 
-  - 
-  - 
+  - Surface
+  - Player
+  - Enemy
+  - NoReaction
+  - Lava
   - 
   - 
   - 
