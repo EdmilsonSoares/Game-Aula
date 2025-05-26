@@ -5,7 +5,7 @@ using System.Collections; // Necessário para usar corrotinas (IEnumerator)
 public class Projectil : MonoBehaviour
 {
     [SerializeField] private float speed;
-    [SerializeField] private float damage; // Ainda não estou usando
+    [SerializeField] private float damage = 10f;
     [SerializeField] private float timeToLive;
     private Rigidbody2D projectilRb;
     private Animator projectilAnimator;
@@ -27,8 +27,20 @@ public class Projectil : MonoBehaviour
     {
         if (hasHit) return;
 
-        hasHit = true; // Marca que a colisão aconteceu
-
+        hasHit = true;
+        EnemySlime enemySlime = collision.gameObject.GetComponent<EnemySlime>();
+        if (enemySlime != null)
+        {
+            enemySlime.TakeDamage(damage); // Se encontrou um EnemySlime, chama o método TakeDamage() dele
+            Debug.Log($"Projetil causou {damage} de dano ao {collision.gameObject.name}.");
+        }
+        else
+        {
+            // Se o projétil colidiu com algo que não é um EnemySlime, mas ainda assim é um impacto
+            // Você pode adicionar outras verificações aqui para outros tipos de inimigos/destrutíveis
+            // Ex: DestructibleObject destructible = collision.gameObject.GetComponent<DestructibleObject>();
+            // if (destructible != null) { destructible.TakeDamage(damage); }
+        }
         // Para o movimento do projétil e desativa sua física para colisões futuras
         if (projectilRb != null)
         {
@@ -55,7 +67,7 @@ public class Projectil : MonoBehaviour
     // Corrotina para esperar e destruir o objeto
     IEnumerator DestroyAfterAnimation(float delay)
     {
-        
+
         if (delay < 0) delay = 0; // Garante que o delay não seja negativo, caso a animação tenha duração zero ou estranha
 
         yield return new WaitForSeconds(delay); // Espera pelo tempo especificado

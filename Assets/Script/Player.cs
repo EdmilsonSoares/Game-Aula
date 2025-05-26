@@ -39,9 +39,6 @@ public class Player : MonoBehaviour
     [SerializeField] private string continuousDamageLayerName = "Lava"; // Nome da Layer que causa dano contínuo (configure no Inspector!)
     private float lastContinuousDamageTime; // Armazena o último momento em que o player sofreu dano contínuo
     private bool inLava = false;
-    private Material originalMaterial; // Para armazenar o material original
-    [Header("Feedback visual ao receber dano")]
-    public Material hitFlashMaterial;   // Arraste o material de "brilho" aqui no Inspector
 
     public static Player Instance { get; private set; }
 
@@ -60,7 +57,6 @@ public class Player : MonoBehaviour
         sprRen = GetComponent<SpriteRenderer>(); // Pegue a referência para piscar o sprite ao receber dano
         playerAnimator = GetComponent<Animator>();
         currentHealth = maxHealth;
-        originalMaterial = sprRen.material;
     }
 
     void Update()
@@ -207,13 +203,14 @@ public class Player : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (isDead || isInvulnerable) return; // Se o jogador está morto ou invulnerável, não processa dano
+        if (isDead) return; // Se o jogador está morto não processa dano.
 
         string collidedLayerName = LayerMask.LayerToName(collision.gameObject.layer);
-
         if (collidedLayerName == continuousDamageLayerName) // Verifica se a camada com a qual está em contato é a camada de dano contínuo (ex: "Lava")
         {
             inLava = true;
+            if (isInvulnerable) return; // Se o jogador está invulnerável não processa dano
+
             if (Time.time >= lastContinuousDamageTime + continuousDamageTickInterval) // Verifica se já passou tempo suficiente para aplicar o próximo tick de dano
             {
                 DamageDealer damageDealer = collision.gameObject.GetComponent<DamageDealer>();
@@ -240,7 +237,7 @@ public class Player : MonoBehaviour
 
         currentHealth -= amount;  // Aplica o dano
         Debug.Log($"Player recebeu {amount} de dano. Vida restante: {currentHealth}");
-        StartCoroutine(FlashSpriteOnce()); // Piscar o personagem
+        playerAnimator.SetTrigger("damaged");
 
         if (currentHealth > 0 && !inLava) // Só inicia invulnerabilidade se não for um hit fatal
         {
@@ -250,15 +247,6 @@ public class Player : MonoBehaviour
         {
             Die(); // Chama o método de morte se a vida for <= 0
         }
-    }
-
-    private IEnumerator FlashSpriteOnce()
-    {
-        Color originalColor = sprRen.color;
-        // Altera a cor para um tom mais claro ou para branco
-        sprRen.color = Color.white; // Ou new Color(1f, 1f, 1f, 0.7f) para um branco transparente, ou Color.red para um brilho vermelho
-        yield return null; // Espera por um frame. Isso faz com que a cor seja aplicada e mostrada.
-        sprRen.color = originalColor; // Volta para a cor original imediatamente no próximo frame.
     }
 
     private IEnumerator Invulnerability()
@@ -316,7 +304,7 @@ public class Player : MonoBehaviour
         Debug.Log("Fim de Jogo!");
         // Exemplo: GameManager.Instance.GameOver();
         // Ou Destroy(gameObject, 3f); // Destrói o player após 3 segundos
-        Destroy(gameObject, 3f);
+        Destroy(gameObject, 0.5f);
     }
 
     private void OnDrawGizmos()
