@@ -7,6 +7,7 @@ public class Projectil : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float damage = 10f;
     [SerializeField] private float timeToLive;
+    [SerializeField] private ElementType projectilElement;
     private Rigidbody2D projectilRb;
     private Animator projectilAnimator;
     private int direcaoX;
@@ -31,7 +32,7 @@ public class Projectil : MonoBehaviour
         EnemySlime enemySlime = collision.gameObject.GetComponent<EnemySlime>();
         if (enemySlime != null)
         {
-            enemySlime.TakeDamage(damage); // Se encontrou um EnemySlime, chama o método TakeDamage() dele
+            enemySlime.TakeDamage(damage, projectilElement); // Se encontrou um EnemySlime, chama o método TakeDamage() dele
             Debug.Log($"Projetil causou {damage} de dano ao {collision.gameObject.name}.");
         }
         else
@@ -69,9 +70,7 @@ public class Projectil : MonoBehaviour
     {
 
         if (delay < 0) delay = 0; // Garante que o delay não seja negativo, caso a animação tenha duração zero ou estranha
-
         yield return new WaitForSeconds(delay); // Espera pelo tempo especificado
-
         Destroy(gameObject); // Finalmente, destrói o GameObject do projétil
     }
 

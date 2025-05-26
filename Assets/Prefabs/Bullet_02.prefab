@@ -191,3 +191,4 @@ MonoBehaviour:
   speed: 18
   damage: 20
   timeToLive: 1
+  projectilElement: 1

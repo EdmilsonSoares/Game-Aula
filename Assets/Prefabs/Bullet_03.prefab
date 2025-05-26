@@ -189,5 +189,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 18
-  damage: 5
+  damage: 10
   timeToLive: 1
+  projectilElement: 2

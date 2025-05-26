@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 9de59fd52e5b4754ba99ba372026995f
+guid: 58d0646506af3b04cb306b6d428c28e2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8625846662236638254
-    second: Hit (44x30)_0
+      213: -1093397925451978633
+    second: SlimeHydro_Hit.png_0
   - first:
-      213: 1570143437731978870
-    second: Hit (44x30)_1
+      213: -7898186903546548022
+    second: SlimeHydro_Hit.png_1
   - first:
-      213: 293275071455328999
-    second: Hit (44x30)_2
+      213: 6193959247457804895
+    second: SlimeHydro_Hit.png_2
   - first:
-      213: -3073595936789769836
-    second: Hit (44x30)_3
+      213: -7311923621588149391
+    second: SlimeHydro_Hit.png_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -122,7 +122,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Hit (44x30)_0
+      name: SlimeHydro_Hit.png_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2d375629926da4880800000000000000
-      internalID: -8625846662236638254
+      spriteID: 778294f316873d0f0800000000000000
+      internalID: -1093397925451978633
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hit (44x30)_1
+      name: SlimeHydro_Hit.png_1
       rect:
         serializedVersion: 2
         x: 44
@@ -159,14 +159,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 67edc6c33254ac510800000000000000
-      internalID: 1570143437731978870
+      spriteID: ac0377c8bd0046290800000000000000
+      internalID: -7898186903546548022
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hit (44x30)_2
+      name: SlimeHydro_Hit.png_2
       rect:
         serializedVersion: 2
         x: 88
@@ -181,14 +181,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7ea7297af1ce11400800000000000000
-      internalID: 293275071455328999
+      spriteID: f52e7f95e1d55f550800000000000000
+      internalID: 6193959247457804895
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hit (44x30)_3
+      name: SlimeHydro_Hit.png_3
       rect:
         serializedVersion: 2
         x: 132
@@ -203,14 +203,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 491df84b7c46855d0800000000000000
-      internalID: -3073595936789769836
+      spriteID: 17b5376d434d68a90800000000000000
+      internalID: -7311923621588149391
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hit (44x30)_4
+      name: SlimeHydro_Hit.png_4
       rect:
         serializedVersion: 2
         x: 176
@@ -225,8 +225,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d9f58ce20cb1f543bac6ce1537bba2c
-      internalID: -1865652223
+      spriteID: 79af3942b0af708448e52eeccada7130
+      internalID: -1602328200
       vertices: []
       indices: 
       edges: []
@@ -235,7 +235,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5129b96adeb318d45ab0dbb1c6c95125
+    spriteID: 5c78047025d3b6a4ab0ccb4d51c24ae9
     internalID: 0
     vertices: []
     indices: 
@@ -245,11 +245,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Hit (44x30)_0: -8625846662236638254
-      Hit (44x30)_1: 1570143437731978870
-      Hit (44x30)_2: 293275071455328999
-      Hit (44x30)_3: -3073595936789769836
-      Hit (44x30)_4: -1865652223
+      SlimeHydro_Hit.png_0: -1093397925451978633
+      SlimeHydro_Hit.png_1: -7898186903546548022
+      SlimeHydro_Hit.png_2: 6193959247457804895
+      SlimeHydro_Hit.png_3: -7311923621588149391
+      SlimeHydro_Hit.png_4: -1602328200
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
