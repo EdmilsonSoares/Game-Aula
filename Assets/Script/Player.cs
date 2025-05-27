@@ -1,8 +1,10 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    public Slider barraDeVida; //Temporário vou arrumar
     public int coins;
     [SerializeField] private float velocidade = 8f;
     [SerializeField] private GameObject arma;
@@ -53,6 +55,10 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        // --- Vou arrumar isso depois ---
+        barraDeVida.maxValue = maxHealth;
+        barraDeVida.value = currentHealth;
+        // --------------------------------
         if (isDead) return;
         GerenciadorDeAnimacao();
         PuloJogador();

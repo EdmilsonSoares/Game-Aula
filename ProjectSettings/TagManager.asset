@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Slime_Hydro
   - Slime_Pyro
+  - UIText_Vida
   layers:
   - Default
   - TransparentFX

@@ -9,7 +9,7 @@ public class GameGerenciador : MonoBehaviour
     public string NomeProxCena { get; set; }
     [Header("Configurações do Jogador")]
     [SerializeField] private int playerStartingLives = 3; // Vidas iniciais para um NOVO jogo
-    public int currentPlayerLives = 3; // Vidas ATUAIS do jogador
+    public int currentPlayerLives = 0; // Vidas ATUAIS do jogador
 
     private void Awake()
     {
@@ -28,7 +28,7 @@ public class GameGerenciador : MonoBehaviour
             currentPlayerLives = playerStartingLives;
         }
     }
-
+    
     public void CarregarComCenaLoading(string sceneName)
     {
         NomeProxCena = sceneName;
@@ -66,5 +66,4 @@ public class GameGerenciador : MonoBehaviour
     {
         currentPlayerLives = playerStartingLives;
     }
-
 }

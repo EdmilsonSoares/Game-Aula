@@ -1,10 +1,12 @@
 // Anexe esse script a arma
-using System.Collections; // Não é estritamente necessário aqui, mas bom manter se usar corrotinas
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Weapon : MonoBehaviour
 {
+    // Evento que outros scripts podem assinar para saber qual projétil foi escolhido
+    public static event Action<GameObject> OnProjectileChanged;
     [SerializeField] private List<GameObject> projectilList; // A lista de todos os prefabs de projéteis
     private GameObject chosenProjectil; // O prefab de projétil atualmente selecionado
     private int projectilIndex = 0; // Índice do projétil atualmente selecionado na lista
@@ -14,6 +16,7 @@ public class Weapon : MonoBehaviour
     void Start()
     {
         chosenProjectil = projectilList[0];
+        OnProjectileChanged?.Invoke(chosenProjectil);
     }
 
     void Update()
@@ -46,6 +49,7 @@ public class Weapon : MonoBehaviour
             chosenProjectil = projectilList[projectilIndex];
             Debug.Log($"Tipo de projétil alterado para: {chosenProjectil.name}");
             // Opcional: Você pode querer exibir uma UI ou um som para indicar a troca
+            OnProjectileChanged?.Invoke(chosenProjectil);
         }
     }
 
