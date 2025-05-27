@@ -32,7 +32,7 @@ public class Projectil : MonoBehaviour
         EnemySlime enemySlime = collision.gameObject.GetComponent<EnemySlime>();
         if (enemySlime != null)
         {
-            enemySlime.TakeDamage(damage, projectilElement); // Se encontrou um EnemySlime, chama o método TakeDamage() dele
+            enemySlime.TakeDamageByProjectil(damage, projectilElement); // Se encontrou um EnemySlime, chama o método TakeDamage() dele
             Debug.Log($"Projetil causou {damage} de dano ao {collision.gameObject.name}.");
         }
         else

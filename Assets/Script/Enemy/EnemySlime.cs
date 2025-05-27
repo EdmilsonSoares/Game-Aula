@@ -33,8 +33,7 @@ public class EnemySlime : MonoBehaviour
         // Calcula o limite esquerdo e direito da patrulha
         float leftLimit = startPosition.x - patrolDistance / 2f;
         float rightLimit = startPosition.x + patrolDistance / 2f;
-        // Move o slime na direção atual
-        transform.Translate(Vector2.right * patrolDirection * speed * Time.deltaTime);
+        transform.Translate(Vector2.right * patrolDirection * speed * Time.deltaTime); // Move o slime na direção atual
         // Verifica se o slime atingiu o limite da patrulha
         if (patrolDirection > 0 && transform.position.x >= rightLimit) // Se movendo para a direita e atingiu o limite direito
         {
@@ -56,7 +55,18 @@ public class EnemySlime : MonoBehaviour
         transform.localScale = newScale;
     }
 
-    public void TakeDamage(float amount, ElementType projectileElement)
+    public void TakeDamageByLava(float damage)
+    {
+        if (currentHealth <= 0) return;
+        enemyAnimator.SetTrigger("damaged");
+        currentHealth -= damage;
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    public void TakeDamageByProjectil(float amount, ElementType projectileElement)
     {
         if (currentHealth <= 0) return; // Se já estiver morto, não recebe mais dano
         enemyAnimator.SetTrigger("damaged");
@@ -66,18 +76,16 @@ public class EnemySlime : MonoBehaviour
             currentHealth = 0; // Zera a vida para forçar a morte
             // O slime é destruído instantaneamente sem divisão
             Die();
-            return; // Sai do método após a morte instantânea
+            return;
         }
         else // Não há vantagem elemental, aplica dano normal e verifica divisão
         {
             currentHealth -= amount;
             Debug.Log($"Slime {gameObject.name} recebeu {amount} de dano. Vida restante: {currentHealth}");
-            // 2. Lógica de Divisão (se este slime AINDA PODE dividir)
             if (!hasDivided)
             {
                 DivideSlime();
                 hasDivided = true; // Marca que este slime original iniciou o processo de divisão
-                //return; // Sai do método para não chamar Die() para o slime original, pois DivideSlime() o destruirá
             }
         }
         if (currentHealth <= 0)
@@ -103,10 +111,10 @@ public class EnemySlime : MonoBehaviour
     private void DivideSlime()
     {
         // Cria um pequeno offset para os novos slimes não nascerem exatamente no mesmo lugar
-        //Vector3 spawnOffset = new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0);
         Vector3 spawnOffset = new Vector3(Random.Range(-0.5f, 0.5f), 0.5f, 0);
         // Instancia uma CÓPIA DESTE MESMO PREFAB
         GameObject newSlimeInstance = Instantiate(gameObject, transform.position + spawnOffset, Quaternion.identity);
+        newSlimeInstance.name = "EnemySlime_Divided"; // Renomear para evitar nomes grandes conforme o slime for dividido
         EnemySlime newSlimeScript = newSlimeInstance.GetComponent<EnemySlime>();
         if (newSlimeScript != null)
         {
@@ -114,11 +122,10 @@ public class EnemySlime : MonoBehaviour
             newSlimeScript.hasDivided = false; // Permite que esta nova instância se divida no futuro
         }
     }
-   
+
     private void Die()
     {
         // Opcional: Animação de morte, som de morte, spawn de itens
-        // Ex: GetComponent<Animator>().SetTrigger("Die");
         Collider2D col = GetComponent<Collider2D>();
         if (col != null) col.enabled = false; // Desativa o collider para não colidir mais
         Rigidbody2D rb = GetComponent<Rigidbody2D>(); // Desativa o Rigidbody para parar qualquer movimento residual

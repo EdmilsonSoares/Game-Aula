@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -40,14 +38,8 @@ public class Player : MonoBehaviour
     private float lastContinuousDamageTime; // Armazena o último momento em que o player sofreu dano contínuo
     private bool inLava = false;
 
-    public static Player Instance { get; private set; }
-
     private void Awake()
     {
-        if (Instance == null)
-            Instance = this;
-        else
-            Destroy(gameObject);
         originalLayer = gameObject.layer;
     }
 
@@ -236,7 +228,7 @@ public class Player : MonoBehaviour
         if (isDead || isInvulnerable) return; // Não recebe dano se já estiver morto ou invulnerável
 
         currentHealth -= amount;  // Aplica o dano
-        Debug.Log($"Player recebeu {amount} de dano. Vida restante: {currentHealth}");
+        Debug.Log($"Player recebeu {amount} de dano. HP: {currentHealth}");
         playerAnimator.SetTrigger("damaged");
 
         if (currentHealth > 0 && !inLava) // Só inicia invulnerabilidade se não for um hit fatal
@@ -275,36 +267,21 @@ public class Player : MonoBehaviour
         if (isDead) return; // Garante que a morte não seja processada múltiplas vezes
 
         isDead = true; // Marca o jogador como morto
-        Debug.Log("Player morreu!");
-
+        playerAnimator.SetBool("jumping", false);
+        playerAnimator.SetTrigger("die");
         if (playerRb != null)
         {
-            // Desativa o Rigidbody para parar qualquer movimento residual e colisões
-            playerRb.linearVelocity = Vector2.zero;
+            playerRb.linearVelocity = Vector2.zero; // Desativa o Rigidbody para parar qualquer movimento residual e colisões
             playerRb.simulated = false; // Desativa completamente a física
         }
-
-        // Desativa o collider do player para que ele não colida mais
         Collider2D playerCollider = GetComponent<Collider2D>();
         if (playerCollider != null)
         {
-            playerCollider.enabled = false;
+            playerCollider.enabled = false; // Desativa o collider do player para que ele não colida mais
         }
         arma.SetActive(false);
-        // Ativa a animação de morte (se houver)
-        if (playerAnimator != null)
-        {
-            //playerAnimator.SetTrigger("Die");
-            // Opcional: Se a animação de morte tiver um tempo fixo e você quiser esperar
-            // StartCoroutine(HandleDeathAnimation(playerAnimator.GetCurrentAnimatorStateInfo(0).length));
-        }
 
-        // Lógica de Game Over (ex: carregar cena, exibir tela de Game Over)
-        // Por enquanto, apenas um debug, mas aqui você chamaria um GameManager
-        Debug.Log("Fim de Jogo!");
-        // Exemplo: GameManager.Instance.GameOver();
-        // Ou Destroy(gameObject, 3f); // Destrói o player após 3 segundos
-        Destroy(gameObject, 0.5f);
+        GameGerenciador.Instance.PlayerLoseLife();
     }
 
     private void OnDrawGizmos()

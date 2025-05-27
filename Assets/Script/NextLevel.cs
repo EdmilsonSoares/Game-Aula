@@ -1,6 +1,5 @@
-//script para mudar de cena quando jogador colidir com o final
+//script para mudar de cena quando jogador colidir com o final (gate)
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class NextLevel : MonoBehaviour
 {
@@ -8,12 +7,14 @@ public class NextLevel : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D colidiu)
     {
-        if(colidiu.gameObject.CompareTag("Player")){
+        if (colidiu.gameObject.CompareTag("Player"))
+        {
             ProximoNivel();
         }
     }
 
-    public void ProximoNivel(){
-        SceneManager.LoadScene(this.proximaCena);
+    public void ProximoNivel()
+    {
+        GameGerenciador.Instance.Carregar(proximaCena);
     }
 }

@@ -13,7 +13,7 @@ public class LoadingScenes : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(CarregarAsync(CenaLoadGerenciador.Instance.NomeProxCena)); // Inicia o carregamento assíncrono da próxima cena
+        StartCoroutine(CarregarAsync(GameGerenciador.Instance.NomeProxCena)); // Inicia o carregamento assíncrono da próxima cena
     }
 
     IEnumerator CarregarAsync(String nomeProxCena)
@@ -29,12 +29,12 @@ public class LoadingScenes : MonoBehaviour
             {
                 loadingImage.fillAmount = progresso; // Usa 'progresso' se demorar mais
                 loadingText.text = Mathf.RoundToInt(progresso * 100) + "%\nLoading...";
-                Debug.Log("Progresso (Carregamento Lento): " + progresso + " Barra: " + loadingImage.fillAmount);
+                //Debug.Log("Progresso (Carregamento Lento): " + progresso + " Barra: " + loadingImage.fillAmount);
             }
             else if (loadingImage.fillAmount < 1f) // Trecho para rodar a animação de loading mesmo que a cena carregue rápido demais
             {
                 loadingImage.fillAmount = count; // Usa 'count' se carregamento for rápido
-                Debug.Log("Count (Carregamento Rápido): " + count + " Barra: " + loadingImage.fillAmount);
+                //Debug.Log("Count (Carregamento Rápido): " + count + " Barra: " + loadingImage.fillAmount);
                 loadingText.text = Mathf.RoundToInt(count * 100) + "%\nLoading...";
                 count += 0.01f; // Essa variável controla a velocidade do carregamento
             }

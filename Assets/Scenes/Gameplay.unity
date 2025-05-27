@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 10370140}
   m_Layer: 8
   m_Name: SlimeHydro
-  m_TagString: Untagged
+  m_TagString: Slime_Hydro
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17495,7 +17495,7 @@ Transform:
   m_GameObject: {fileID: 221344111}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.46, y: 3.8, z: 0}
+  m_LocalPosition: {x: -7.38, y: -3.51, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -17590,7 +17590,7 @@ MonoBehaviour:
   dashSpeed: 12
   dashDuration: 0.4
   dashCooldown: 0.5
-  maxHealth: 100000
+  maxHealth: 100
   damageDealingLayers:
   - Enemy
   continuousDamageTickInterval: 0.5
@@ -23630,6 +23630,7 @@ GameObject:
   - component: {fileID: 972941783}
   - component: {fileID: 972941782}
   - component: {fileID: 972941785}
+  - component: {fileID: 972941786}
   m_Layer: 10
   m_Name: Lava_Colisao
   m_TagString: Untagged
@@ -24095,6 +24096,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 50
+--- !u!114 &972941786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972941778}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aafd6dca76bb2b4f884527989e5d330, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  continuousDamageTickInterval: 0.5
+  slimeLayers:
+    serializedVersion: 2
+    m_Bits: 256
+  ignoreDamageTagObject: Slime_Pyro
 --- !u!1 &1132304024
 GameObject:
   m_ObjectHideFlags: 0
@@ -32050,6 +32068,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4914291788831289270, guid: b39b3b9d7416fa34991d4e1d2e066559, type: 3}
   m_PrefabInstance: {fileID: 759793003}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1567978651
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1567978653}
+  - component: {fileID: 1567978652}
+  m_Layer: 0
+  m_Name: temporarioGameGerendiador
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1567978652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567978651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dca084cb88b5b6542b87f75af80432b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStartingLives: 3
+  currentPlayerLives: 0
+--- !u!4 &1567978653
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567978651}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 991.67487, y: 560.96173, z: 5.245103}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1714320234
 GameObject:
   m_ObjectHideFlags: 0
@@ -43767,7 +43831,7 @@ GameObject:
   - component: {fileID: 2034232405}
   m_Layer: 8
   m_Name: SlimePyro
-  m_TagString: Untagged
+  m_TagString: Slime_Pyro
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43872,7 +43936,7 @@ Transform:
   m_GameObject: {fileID: 2034232398}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.66, y: 2.99, z: 0}
+  m_LocalPosition: {x: -1.95, y: -4.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44032,3 +44096,4 @@ SceneRoots:
   - {fileID: 221344113}
   - {fileID: 2034232401}
   - {fileID: 10370146}
+  - {fileID: 1567978653}

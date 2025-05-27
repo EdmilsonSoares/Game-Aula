@@ -220,9 +220,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 785391264}
-  - component: {fileID: 785391265}
+  - component: {fileID: 785391266}
   m_Layer: 0
-  m_Name: CarregarCenaLoading
+  m_Name: CenaLoadGerenciador
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -243,7 +243,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &785391265
+--- !u!114 &785391266
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -252,9 +252,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 785391263}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b0fbdac07baf7b4d9cab4f659dda94c, type: 3}
+  m_Script: {fileID: 11500000, guid: dca084cb88b5b6542b87f75af80432b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStartingLives: 3
+  currentPlayerLives: 0
 --- !u!1 &890631201
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,7 +268,7 @@ GameObject:
   - component: {fileID: 890631203}
   - component: {fileID: 890631202}
   m_Layer: 0
-  m_Name: CarregarCenaInicial
+  m_Name: CarregarMainMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
