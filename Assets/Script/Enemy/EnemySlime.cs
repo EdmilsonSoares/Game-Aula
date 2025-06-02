@@ -14,6 +14,7 @@ public class EnemySlime : MonoBehaviour
 
     [SerializeField] private ElementType slimeElement; // O elemento deste slime (definido no Inspector)
     private bool hasDivided = false; // Flag para garantir que o slime só se divide uma vez
+    [SerializeField] private AudioSource audioSource;
 
     void Start()
     {
@@ -114,13 +115,20 @@ public class EnemySlime : MonoBehaviour
         Vector3 spawnOffset = new Vector3(Random.Range(-0.5f, 0.5f), 0.5f, 0);
         // Instancia uma CÓPIA DESTE MESMO PREFAB
         GameObject newSlimeInstance = Instantiate(gameObject, transform.position + spawnOffset, Quaternion.identity);
-        newSlimeInstance.name = "EnemySlime_Divided"; // Renomear para evitar nomes grandes conforme o slime for dividido
-        EnemySlime newSlimeScript = newSlimeInstance.GetComponent<EnemySlime>();
-        if (newSlimeScript != null)
+
+        if (newSlimeInstance)
         {
-            newSlimeScript.currentHealth = newSlimeScript.maxHealth; // Restaura a vida completa
-            newSlimeScript.hasDivided = false; // Permite que esta nova instância se divida no futuro
+            newSlimeInstance.name = "EnemySlime_Divided"; // Renomear para evitar nomes grandes conforme o slime for dividido
+            audioSource.Play();
+            EnemySlime newSlimeScript = newSlimeInstance.GetComponent<EnemySlime>();
+            if (newSlimeScript != null)
+            {
+                newSlimeScript.currentHealth = newSlimeScript.maxHealth; // Restaura a vida completa
+                newSlimeScript.hasDivided = false; // Permite que esta nova instância se divida no futuro
+            }
         }
+
+
     }
 
     private void Die()

@@ -11,7 +11,9 @@ public class Weapon : MonoBehaviour
     private GameObject chosenProjectil; // O prefab de projétil atualmente selecionado
     private int projectilIndex = 0; // Índice do projétil atualmente selecionado na lista
     [SerializeField] private Transform playerTransform;
-
+    [Header("Configurações de Som")]
+    //[SerializeField] private AudioClip sound;
+    [SerializeField] private AudioSource audioSource;
 
     void Start()
     {
@@ -22,10 +24,9 @@ public class Weapon : MonoBehaviour
     void Update()
     {
         Shooting();
-        ProjectileSwitching(); // Nova função para trocar de projétil
+        ProjectileSwitching();
     }
 
-    // NOVA LÓGICA: Trocar de projétil
     private void ProjectileSwitching()
     {
         if (Input.GetButtonDown("Fire2")) // Configurado para botão Q
@@ -47,7 +48,13 @@ public class Weapon : MonoBehaviour
 
             // Define o novo projétil atual
             chosenProjectil = projectilList[projectilIndex];
-            Debug.Log($"Tipo de projétil alterado para: {chosenProjectil.name}");
+
+
+            //audioSource.clip = sound;
+            audioSource.Play();
+            // Toca o som na posição da arma (ou player, o que fizer mais sentido)
+            //AudioSource.PlayClipAtPoint(switchProjectileSound, transform.position, switchSoundVolume);
+
             // Opcional: Você pode querer exibir uma UI ou um som para indicar a troca
             OnProjectileChanged?.Invoke(chosenProjectil);
         }

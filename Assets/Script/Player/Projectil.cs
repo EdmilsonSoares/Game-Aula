@@ -12,6 +12,10 @@ public class Projectil : MonoBehaviour
     private Animator projectilAnimator;
     private int direcaoX;
     private bool hasHit = false; // Adicione uma flag para evitar múltiplas chamadas de hit
+    [Header("Configurações de Som")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip[] audios;
+
 
     void Awake()
     {
@@ -21,6 +25,7 @@ public class Projectil : MonoBehaviour
 
     void Start()
     {
+        TocarSom(0);  
         Destroy(gameObject, timeToLive);
     }
 
@@ -70,8 +75,15 @@ public class Projectil : MonoBehaviour
     {
 
         if (delay < 0) delay = 0; // Garante que o delay não seja negativo, caso a animação tenha duração zero ou estranha
+        //TocarSom(1);
         yield return new WaitForSeconds(delay); // Espera pelo tempo especificado
         Destroy(gameObject); // Finalmente, destrói o GameObject do projétil
+    }
+
+    private void TocarSom(int index)
+    {
+        audioSource.clip = audios[index];
+        audioSource.Play();
     }
 
     public void SetDirection(int dir)

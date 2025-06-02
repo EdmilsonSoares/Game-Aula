@@ -39,6 +39,11 @@ public class Player : MonoBehaviour
     [SerializeField] private string continuousDamageLayerName = "Lava"; // Nome da Layer que causa dano contínuo (configure no Inspector!)
     private float lastContinuousDamageTime; // Armazena o último momento em que o player sofreu dano contínuo
     private bool inLava = false;
+    [Header("Configurações de Som")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip[] audios;
+    [SerializeField] private float volume;
+    [SerializeField] private float pitch;
 
     private void Awake()
     {
@@ -125,12 +130,14 @@ public class Player : MonoBehaviour
             if (NoSolo() || inLava)
             {
                 playerRb.AddForce(new Vector2(0f, forcaPulo), ForceMode2D.Impulse);
+                TocarSom(0, volume, pitch);
                 if (isDashing)
                     jumpInDash = false;
             }
             else if (isDashing && jumpInDash)
             {
                 playerRb.AddForce(new Vector2(0f, forcaPulo), ForceMode2D.Impulse);
+                TocarSom(0, volume, pitch);
                 jumpInDash = false;
             }
         }
@@ -157,6 +164,7 @@ public class Player : MonoBehaviour
         float dashDirection = lookingRight ? 1f : -1f;
         playerRb.linearVelocity = new Vector2(dashDirection * dashSpeed, 0f);
         playerAnimator.SetBool("dashing", true);
+        TocarSom(1, 0.5f, 1);
         yield return new WaitForSeconds(dashDuration); // Espera pelo tempo de duração do dash
         StopDash(); // Fim do Dash
         playerAnimator.SetBool("dashing", false);
@@ -234,6 +242,7 @@ public class Player : MonoBehaviour
         if (isDead || isInvulnerable) return; // Não recebe dano se já estiver morto ou invulnerável
 
         currentHealth -= amount;  // Aplica o dano
+        TocarSom(2, volume, pitch);
         Debug.Log($"Player recebeu {amount} de dano. HP: {currentHealth}");
         playerAnimator.SetTrigger("damaged");
 
@@ -288,6 +297,14 @@ public class Player : MonoBehaviour
         arma.SetActive(false);
 
         GameGerenciador.Instance.PlayerLoseLife();
+    }
+
+    private void TocarSom(int index, float volume, float pitch)
+    {
+        audioSource.clip = audios[index];
+        audioSource.volume = volume;
+        audioSource.pitch = pitch;
+        audioSource.Play();
     }
 
     private void OnDrawGizmos()
