@@ -28,7 +28,7 @@ public class UI_VidasUpdater : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("GameGerenciador não encontrados para UI_VidasUpdater.", this);
+            Debug.LogWarning("GameManager não encontrados para UI_VidasUpdater.", this);
         }
     }
 }

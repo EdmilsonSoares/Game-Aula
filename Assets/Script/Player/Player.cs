@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     public Slider barraDeVida; //Temporário vou arrumar
     public int coins;
-    [SerializeField] private float velocidade = 8f;
+    [SerializeField] private float velocidade = 8f;  
     [SerializeField] private GameObject arma;
     [Header("Configurações do Jump")]
     [SerializeField] private float forcaPulo = 5f;

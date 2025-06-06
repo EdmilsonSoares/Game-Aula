@@ -32927,7 +32927,7 @@ GameObject:
   - component: {fileID: 1567978653}
   - component: {fileID: 1567978652}
   m_Layer: 0
-  m_Name: temporarioGameGerendiador
+  m_Name: GameGerendiador
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33127,7 +33127,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &1675022564
 AudioSource:
   m_ObjectHideFlags: 0
